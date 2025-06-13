@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QuizMaster Web</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>QuizMaster</h1>
+
+    <!-- Upload Form -->
+    <form id="uploadForm" class="upload-section">
+      <input type="file" id="quizFile" name="file" accept=".xlsx" required>
+      <button type="submit">Upload Quiz File</button>
+    </form>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h3>Filter Questions</h3>
+      <label>Round:
+        <select id="filterRound">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label>Type:
+        <select id="filterType">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label>Difficulty:
+        <select id="filterDifficulty">
+          <option value="">All</option>
+        </select>
+      </label>
+      <button id="applyFilter">Apply Filter</button>
+      <span id="questionCount"></span>
+    </div>
+
+    <!-- Question Display -->
+    <div class="question-section">
+      <h3>Question</h3>
+      <div id="questionDisplay">Upload a file and apply a filter to see questions.</div>
+    </div>
+
+    <!-- Team Controls -->
+    <div class="team-section">
+      <label>Team:
+        <select id="teamSelect">
+          <option value="Team A">Team A</option>
+          <option value="Team B">Team B</option>
+          <option value="Team C">Team C</option>
+          <option value="Team D">Team D</option>
+        </select>
+      </label>
+      <div class="score-controls">
+        <button id="awardBtn">Award Points</button>
+        <button id="deductBtn">Deduct Points</button>
+        <button id="nextTeamBtn">Next Team ➡️</button>
+      </div>
+    </div>
+
+    <!-- Score Display -->
+    <div class="score-display">
+      <h3>Scores</h3>
+      <ul id="scoreList">
+        <li>Team A: 0</li>
+        <li>Team B: 0</li>
+        <li>Team C: 0</li>
+        <li>Team D: 0</li>
+      </ul>
+    </div>
+
+    <!-- Save/Load/Export -->
+    <div class="save-load-export">
+      <button id="saveBtn">💾 Save Scores</button>
+      <button id="loadBtn">📂 Load Scores</button>
+      <button id="exportBtn">📤 Export Round</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
